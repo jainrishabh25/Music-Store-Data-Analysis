@@ -75,6 +75,16 @@ group by artist.artist_id
 order by number_of_songs desc
 limit 10;
 
+/* Q3: Return all the track names that have a song length longer than the average song length. 
+Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first. */
+
+select name, miliseconds
+from track
+where miliseconds > (
+    select avg(miliseconds) as avg_track_length
+    from track
+)
+order by miliseconds desc;
 
 
 
